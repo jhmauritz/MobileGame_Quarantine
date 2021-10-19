@@ -26,7 +26,7 @@ _global_script_class_icons={
 
 [application]
 
-config/name="Chapelle Show"
+config/name="MobileGame_Quarantiene"
 run/main_scene="res://Levels/HomeScreen.tscn"
 config/icon="res://Sprites/icon.png"
 

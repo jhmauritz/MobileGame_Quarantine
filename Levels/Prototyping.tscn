@@ -1,0 +1,111 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://Scripts/LevelManager.gd" type="Script" id=1]
+[ext_resource path="res://Scripts/Interactable.gd" type="Script" id=2]
+[ext_resource path="res://Sprites/icon.png" type="Texture" id=3]
+[ext_resource path="res://Scripts/Title_setter.gd" type="Script" id=4]
+[ext_resource path="res://Sprites/white_pause.png" type="Texture" id=5]
+[ext_resource path="res://Scripts/Menu/Buttons/Pause.gd" type="Script" id=6]
+[ext_resource path="res://Sprites/white_restart.png" type="Texture" id=7]
+[ext_resource path="res://Sprites/white_home.png" type="Texture" id=8]
+[ext_resource path="res://Scripts/Menu/Buttons/reload_button.gd" type="Script" id=9]
+[ext_resource path="res://Scripts/Menu/Buttons/home_button.gd" type="Script" id=10]
+
+[node name="Prototyping" type="Node2D"]
+script = ExtResource( 1 )
+
+[node name="Chore" type="Sprite" parent="."]
+position = Vector2( 420.301, 243.299 )
+texture = ExtResource( 3 )
+script = ExtResource( 2 )
+
+[node name="Label" type="Label" parent="Chore"]
+margin_left = -28.0316
+margin_top = -64.0723
+margin_right = 11.9684
+margin_bottom = -50.0723
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Child" type="Sprite" parent="."]
+position = Vector2( 757.694, 249.31 )
+texture = ExtResource( 3 )
+script = ExtResource( 2 )
+
+[node name="Label" type="Label" parent="Child"]
+margin_left = -22.0249
+margin_top = -54.7284
+margin_right = 17.9751
+margin_bottom = -40.7284
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Mental" type="Sprite" parent="."]
+position = Vector2( 845.204, 387.702 )
+texture = ExtResource( 3 )
+script = ExtResource( 2 )
+
+[node name="Label" type="Label" parent="Mental"]
+margin_left = -22.0
+margin_top = -60.0
+margin_right = 18.0
+margin_bottom = -46.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Work" type="Sprite" parent="."]
+position = Vector2( 548.351, 424.774 )
+texture = ExtResource( 3 )
+script = ExtResource( 2 )
+
+[node name="Label" type="Label" parent="Work"]
+margin_left = -24.0
+margin_top = -51.0
+margin_right = 16.0
+margin_bottom = -37.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Score" type="Label" parent="."]
+margin_left = 358.932
+margin_top = 33.6471
+margin_right = 622.932
+margin_bottom = 90.6471
+script = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ErrorMessage" type="Label" parent="."]
+margin_left = 375.617
+margin_top = 90.3777
+margin_right = 639.617
+margin_bottom = 147.378
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="white_pause" type="Sprite" parent="."]
+pause_mode = 2
+position = Vector2( 979.75, 42.0554 )
+scale = Vector2( 0.66629, 0.652942 )
+texture = ExtResource( 5 )
+script = ExtResource( 6 )
+
+[node name="white_home" type="Sprite" parent="white_pause"]
+pause_mode = 2
+position = Vector2( 1.91187, 95.1324 )
+scale = Vector2( 0.523735, 0.55853 )
+texture = ExtResource( 8 )
+script = ExtResource( 10 )
+
+[node name="white_restart" type="Sprite" parent="white_pause"]
+pause_mode = 2
+position = Vector2( 4.25537, 161.775 )
+scale = Vector2( 0.551022, 0.529797 )
+texture = ExtResource( 7 )
+script = ExtResource( 9 )

@@ -1,0 +1,58 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Scripts/Menu/Buttons/StartButton.gd" type="Script" id=1]
+[ext_resource path="res://Font/Retro.tres" type="DynamicFont" id=2]
+[ext_resource path="res://Font/FancyFont.tres" type="DynamicFont" id=3]
+[ext_resource path="res://Scripts/Menu/Buttons/ExitButton.gd" type="Script" id=4]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Button" type="Button" parent="."]
+margin_left = 375.757
+margin_top = 345.055
+margin_right = 535.757
+margin_bottom = 388.055
+text = "Start"
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button2" type="Button" parent="."]
+margin_left = 423.611
+margin_top = 421.638
+margin_right = 497.611
+margin_bottom = 444.638
+text = "Exit"
+script = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="."]
+margin_left = 252.941
+margin_top = 84.2807
+margin_right = 620.941
+margin_bottom = 161.281
+custom_fonts/font = ExtResource( 3 )
+text = "Modern Day"
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label2" type="Label" parent="."]
+margin_left = 254.276
+margin_top = 188.398
+margin_right = 622.276
+margin_bottom = 265.398
+custom_fonts/font = ExtResource( 2 )
+text = "Quarantine"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="pressed" from="Button" to="Button" method="_on_Button_pressed"]
+[connection signal="pressed" from="Button2" to="Button2" method="_on_Button2_pressed"]

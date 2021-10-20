@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://Scripts/LevelManager.gd" type="Script" id=1]
 [ext_resource path="res://Scripts/Interactable.gd" type="Script" id=2]
@@ -10,6 +10,8 @@
 [ext_resource path="res://Sprites/white_home.png" type="Texture" id=8]
 [ext_resource path="res://Scripts/Menu/Buttons/reload_button.gd" type="Script" id=9]
 [ext_resource path="res://Scripts/Menu/Buttons/home_button.gd" type="Script" id=10]
+[ext_resource path="res://Scripts/Menu/OverviewManager.gd" type="Script" id=11]
+[ext_resource path="res://Scripts/Menu/panels/SettingPanel.gd" type="Script" id=12]
 
 [node name="Prototyping" type="Node2D"]
 script = ExtResource( 1 )
@@ -70,16 +72,6 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Score" type="Label" parent="."]
-margin_left = 358.932
-margin_top = 33.6471
-margin_right = 622.932
-margin_bottom = 90.6471
-script = ExtResource( 4 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
 [node name="ErrorMessage" type="Label" parent="."]
 margin_left = 375.617
 margin_top = 90.3777
@@ -89,23 +81,111 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="white_pause" type="Sprite" parent="."]
+[node name="PauseButton" type="Sprite" parent="."]
 pause_mode = 2
 position = Vector2( 979.75, 42.0554 )
+rotation = 0.00208548
 scale = Vector2( 0.66629, 0.652942 )
 texture = ExtResource( 5 )
 script = ExtResource( 6 )
 
-[node name="white_home" type="Sprite" parent="white_pause"]
+[node name="white_home" type="Sprite" parent="PauseButton"]
 pause_mode = 2
+visible = false
 position = Vector2( 1.91187, 95.1324 )
 scale = Vector2( 0.523735, 0.55853 )
 texture = ExtResource( 8 )
 script = ExtResource( 10 )
 
-[node name="white_restart" type="Sprite" parent="white_pause"]
+[node name="white_restart" type="Sprite" parent="PauseButton"]
 pause_mode = 2
+visible = false
 position = Vector2( 4.25537, 161.775 )
 scale = Vector2( 0.551022, 0.529797 )
 texture = ExtResource( 7 )
 script = ExtResource( 9 )
+
+[node name="Overview" type="Button" parent="."]
+margin_left = 38.3755
+margin_top = 107.077
+margin_right = 206.376
+margin_bottom = 142.077
+rect_rotation = 90.9016
+toggle_mode = true
+action_mode = 0
+text = "Overview"
+script = ExtResource( 11 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="Panel" parent="Overview"]
+visible = false
+margin_left = -26.021
+margin_top = -891.335
+margin_right = 436.979
+margin_bottom = -18.3347
+rect_rotation = -1.1346
+input_pass_on_modal_close_click = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Score2" type="Label" parent="Overview/Panel"]
+margin_left = 60.9894
+margin_top = 857.979
+margin_right = 185.989
+margin_bottom = 948.979
+rect_rotation = -88.2469
+text = "{world: word,
+ word: word,
+word: word, 
+word: word}"
+script = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Settings" type="Button" parent="Overview/Panel"]
+margin_left = 190.311
+margin_top = 896.279
+margin_right = 273.311
+margin_bottom = 935.279
+rect_rotation = -1.92556
+toggle_mode = true
+action_mode = 0
+text = "Settings"
+script = ExtResource( 12 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="Panel" parent="Overview/Panel/Settings"]
+visible = false
+margin_left = -26.021
+margin_top = -891.335
+margin_right = 436.979
+margin_bottom = -18.3347
+rect_rotation = -1.1346
+input_pass_on_modal_close_click = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Score2" type="Label" parent="Overview/Panel/Settings/Panel"]
+margin_left = 60.9894
+margin_top = 857.979
+margin_right = 185.989
+margin_bottom = 948.979
+rect_rotation = -88.2469
+text = "{world: word,
+ word: word,
+word: word, 
+word: word}"
+script = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="pressed" from="Overview" to="Overview" method="_on_Button_pressed"]
+[connection signal="pressed" from="Overview/Panel/Settings" to="Overview/Panel/Settings" method="_on_Settings_pressed"]
